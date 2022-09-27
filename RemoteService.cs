@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 
 
+
 public class ScalableComponent
 
 {
@@ -39,6 +40,7 @@ public class ScalableComponent
         UriBuilder modifiedRequestUri = new UriBuilder();
         modifiedRequestUri.Scheme = "http";
         modifiedRequestUri.Host = serviceUri.Host;
+        modifiedRequestUri.Port = serviceUri.Port;
         modifiedRequestUri.Path = requestUri.PathAndQuery;
         System.Console.WriteLine(modifiedRequestUri.ToString() + "modified requesr uri");
 
