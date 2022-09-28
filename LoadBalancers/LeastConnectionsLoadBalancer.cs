@@ -12,7 +12,7 @@ class LeastConnectionsLoadBalancer
 
         }
         ScalableComponent componentWithLeastConnections = components.OrderBy(p => p.NumberOfTCPConnections).FirstOrDefault();
-        System.Console.WriteLine("Component with least connections: " + componentWithLeastConnections.ServiceName);
+        System.Console.WriteLine("Component with least connections: " + componentWithLeastConnections.ServiceName + " number of connections: " + componentWithLeastConnections.NumberOfTCPConnections.ToString());
 
         return componentWithLeastConnections;
     }
