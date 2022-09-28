@@ -6,10 +6,10 @@ public class ScalableComponent
 
 {
     private static readonly HttpClient client = new HttpClient();
-    public ScalableComponent(string serviceName, string serviceURL)
+    public ScalableComponent(string instanceName, string instanceURL)
     {
-        this.ServiceName = serviceName;
-        this.ServiceUrl = serviceURL;
+        this.ServiceName = instanceName;
+        this.ServiceUrl = instanceURL;
         this.NumberOfTCPConnections = 0;
 
     }
