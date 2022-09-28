@@ -1,4 +1,4 @@
-class RoundRobinLoadBalancer
+class RandomizedRoundRobinLoadBalancer
 {
 
     private static readonly Random Random = new Random();

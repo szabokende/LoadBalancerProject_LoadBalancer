@@ -10,22 +10,33 @@ public class ScalableComponent
     {
         this.ServiceName = serviceName;
         this.ServiceUrl = serviceURL;
+        this.NumberOfTCPConnections = 0;
 
     }
 
 
     public string ServiceUrl { get; private set; }
     public string ServiceName { get; private set; }
+    public int NumberOfTCPConnections { get; private set; }
     private static readonly HttpClient httpClient = new HttpClient();
-    public async Task<String> callService(String requestURL)
+    public async Task<String> callListNumbers(String requestURL)
     {
 
         String result = await httpClient.GetStringAsync(combineURLs(requestURL: requestURL));
 
         //TODO implement calling of containerized service
-        // TODO implement real response return
         return result;
 
+    }
+
+    public async Task callAndSetNumberOfTCPConnections()
+    {
+
+        String result = await httpClient.GetStringAsync(this.ServiceUrl + "/connection");
+
+        int numberOfConnections = Int32.Parse(result);
+
+        this.NumberOfTCPConnections = numberOfConnections;
     }
 
 
@@ -48,4 +59,6 @@ public class ScalableComponent
 
         return new Uri(modifiedRequestUri.ToString());
     }
+
+
 }
