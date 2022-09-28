@@ -10,7 +10,7 @@ public class DistributeRequestController : ControllerBase
 
     private List<ScalableComponent> connections = new List<ScalableComponent>{
         new ScalableComponent(serviceName:"first_service", serviceURL:"http://192.168.1.103:8080"),
-
+        new ScalableComponent(serviceName:"second_service", serviceURL:"http://192.168.1.102:8080"),
     };
 
     [HttpGet("{requestURL}")]
